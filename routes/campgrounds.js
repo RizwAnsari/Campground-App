@@ -40,7 +40,7 @@ router.get('/new', middleware.isLoggedIn, function(req, res) {
 router.get('/:id', function(req, res) {
 	var id = req.params.id;
 	Campground.findById(id).populate('comments').exec(function(error, showCamp) {
-		if (!error) {
+		if (!error && showCamp) {
 			// console.log(showCamp);
 			res.render('./campgrounds/show', { camp: showCamp });
 		} else {
