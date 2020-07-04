@@ -36,12 +36,14 @@ app.use(function(req, res, next) {
 app.use('/campgrounds', campgroundRoutes);
 app.use('/campgrounds/:id/comment', commentRoutes);
 app.use('/', indexRoutes);
-
+// console.log(process.env.DATABASEURL);
+var url = process.env.DATABASEURL || 'mongodb://localhost:27017/YelpCamp';
 // mongoose.connect('mongodb://localhost:27017/YelpCamp', { useNewUrlParser: true, useUnifiedTopology: true });
-mongoose.connect('mongodb+srv://newUser:newUser@yelp-camp-app.q2zfg.mongodb.net/yelpcamp?retryWrites=true&w=majority', {
-	useNewUrlParser: true,
-	useUnifiedTopology: true
-});
+mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true });
+// mongoose.connect('mongodb+srv://newUser:newUser@yelp-camp-app.q2zfg.mongodb.net/yelpcamp?retryWrites=true&w=majority', {
+// 	useNewUrlParser: true,
+// 	useUnifiedTopology: true
+// });
 
 // seedDB();
 
