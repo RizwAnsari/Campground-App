@@ -1,0 +1,6 @@
+body {
+	user-select: none;
+}
+.deleteForm {
+	display: inline !important;
+}
